@@ -37,7 +37,7 @@ export function WorkoutProvider({ children }) {
       return;
     }
     
-    if (planItems.some((item) => item.id === workout.id)) {
+    if (planItems.some((item) => String(item.id) === String(workout.id))) {
       toast.error("Workout is already in today's plan!");
       return;
     }
@@ -47,21 +47,21 @@ export function WorkoutProvider({ children }) {
   };
 
   const removeFromPlan = (id) => {
-    setPlanItems(planItems.filter((item) => item.id !== id));
+    setPlanItems(planItems.filter((item) => String(item.id) !== String(id)));
     toast.success("Removed from plan");
   };
 
   const markAsDone = (id) => {
     setPlanItems(
       planItems.map((item) =>
-        item.id === id ? { ...item, isDone: true } : item
+        String(item.id) === String(id) ? { ...item, isDone: true } : item
       )
     );
     toast.success("Workout marked as done! Great job!");
   };
 
   const addToSaved = (workout) => {
-    if (savedItems.some((item) => item.id === workout.id)) {
+    if (savedItems.some((item) => String(item.id) === String(workout.id))) {
       toast.error("Workout is already saved!");
       return;
     }
@@ -71,7 +71,7 @@ export function WorkoutProvider({ children }) {
   };
 
   const removeFromSaved = (id) => {
-    setSavedItems(savedItems.filter((item) => item.id !== id));
+    setSavedItems(savedItems.filter((item) => String(item.id) !== String(id)));
     toast.success("Removed from saved list");
   };
 

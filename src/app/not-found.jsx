@@ -10,17 +10,17 @@ export default function NotFound() {
         404 - Not Found
       </h1>
       <p className="text-[#a1a1aa] max-w-md mx-auto mb-8 text-lg">
-        The workout you're looking for doesn't exist or has been removed from the library.
+        The workout you&apos;re looking for doesn&apos;t exist or has been removed from the library.
       </p>
-      <Button 
-        as={Link} 
-        href="/" 
-        className="bg-accent text-black font-bold uppercase tracking-wider px-8"
-        size="lg"
-        radius="sm"
-      >
-        Return Home
-      </Button>
+      <Link href="/" className="outline-none">
+        <Button 
+          className="bg-accent text-black font-bold uppercase tracking-wider px-8"
+          size="lg"
+          radius="sm"
+        >
+          Return Home
+        </Button>
+      </Link>
     </div>
   );
 }

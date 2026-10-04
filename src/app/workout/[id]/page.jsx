@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { fetchWorkoutById } from "@/lib/api";
-import { Button } from "@heroui/react";
-import { Plus, Bookmark } from "lucide-react";
+import WorkoutActions from "@/components/WorkoutActions";
 
 export default async function WorkoutDetailsPage({ params }) {
   const { id } = await params;
@@ -96,24 +95,7 @@ export default async function WorkoutDetailsPage({ params }) {
             ))}
           </ul>
 
-          <div className="flex flex-col sm:flex-row gap-4 mt-auto">
-            <Button 
-              className="flex-1 bg-accent text-black font-semibold text-sm"
-              size="lg"
-              radius="md"
-              startContent={<Plus size={18} strokeWidth={2.5} />}
-            >
-              Add to today's plan
-            </Button>
-            <Button 
-              className="flex-1 bg-transparent border border-[#374151] text-[#e5e7eb] hover:bg-white/5 font-medium text-sm"
-              size="lg"
-              radius="md"
-              startContent={<Bookmark size={18} strokeWidth={2} />}
-            >
-              Save for later
-            </Button>
-          </div>
+          <WorkoutActions workout={workout} />
         </div>
       </div>
     </main>
